@@ -38,9 +38,7 @@ public class AuthUserController {
         }
 
         User user = userService.register(payload);
-        return new UserRegistrationRespDTO(user.getId(), user.getUsername(), user.getName(), user.getSurname(),
-                user.getEmail(),
-                user.getRole());
+        return new UserRegistrationRespDTO(user.getId(), user.getUsername());
     }
 
     @PostMapping("/login")
