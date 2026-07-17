@@ -10,8 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration // Marks this class as a Spring configuration class.
-@EnableWebSecurity // Enables Spring Security and allows custom security configuration.
+@Configuration
+@EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
 
