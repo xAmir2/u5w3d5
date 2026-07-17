@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@RestController
+@RequestMapping("/events")
 public class EventController {
     private final EventService eventService;
 

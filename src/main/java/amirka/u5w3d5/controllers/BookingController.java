@@ -5,7 +5,6 @@ import amirka.u5w3d5.entities.User;
 import amirka.u5w3d5.payloads.BookingRespDTO;
 import amirka.u5w3d5.services.BookingServices;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +37,6 @@ public class BookingController {
 
 
     @DeleteMapping("/{bookingId}")
-    @PreAuthorize("'ORGANIZER'")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void cancelBooking(@PathVariable UUID bookingId, @AuthenticationPrincipal User currentUser) {
         bookingServices.cancelBooking(bookingId, currentUser);
