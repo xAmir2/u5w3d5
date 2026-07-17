@@ -53,7 +53,7 @@ public class EventService {
 
     public Event updateEvent(UUID id, EventDTO dto, User currentUser) {
         Event event = getEventById(id);
-        assertOwnership(event, currentUser);
+        checkOwnership(event, currentUser);
 
         event.setTitle(dto.title());
         event.setDescription(dto.description());
@@ -66,11 +66,11 @@ public class EventService {
 
     public void deleteEvent(UUID id, User currentUser) {
         Event existing = getEventById(id);
-        assertOwnership(existing, currentUser);
+        checkOwnership(existing, currentUser);
         eventRepository.delete(existing);
     }
 
-    private void assertOwnership(Event event, User currentUser) {
+    private void checkOwnership(Event event, User currentUser) {
         if (!event.getOrganizer()
                 .getId()
                 .equals(currentUser.getId())) {
