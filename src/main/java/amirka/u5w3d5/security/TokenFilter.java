@@ -35,7 +35,7 @@ public class TokenFilter extends OncePerRequestFilter {
         String authHeader = req.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer "))
-            throw new UnauthorizedEx("Inser token in authorization bearer!");
+            throw new UnauthorizedEx("Insert token in authorization bearer!");
 
         String accessToken = authHeader.replace("Bearer ", "");
 
